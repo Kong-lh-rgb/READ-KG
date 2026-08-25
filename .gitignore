@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Environments and credentials
+.env
+.env.*
+.venv/
+venv/
+
+# Editors and operating systems
+.DS_Store
+._*
+.vscode/
+.idea/
+
+# Generated experiment artifacts
+logs/
+checkpoints/
+mscav_ckpt/
+wandb/
+*.pth
+*.pt
+*.ckpt
+
+# Local benchmark and model resources
+data_files/
+retrieval_outputs/
+models/
+hf_cache/

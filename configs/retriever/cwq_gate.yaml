@@ -1,0 +1,56 @@
+task: 'retriever'
+
+env:
+  num_threads: 16
+  seed: 42
+
+dataset:
+  name: 'cwq'
+  text_encoder_name: 'gte-large-en-v1.5'
+  question_analysis_emb_dir: 'data_files/cwq/question_analysis_emb/gte-large-en-v1.5'
+  question_analysis_required: false
+
+retriever:
+  topic_pe: true
+  DDE_kwargs:
+    num_rounds: 2
+    num_reverse_rounds: 2
+    relation_aware: true
+    gate_hidden_dim: 128
+    gate_dropout: 0.1
+    relation_mix: 0.08
+    use_directional_gates: true
+    temperature: 1.0
+    condition_source: 'question_steps'
+    analysis_mix: 0.3
+  llm_ref_kwargs:
+    enable: true
+    top_k_relations: 2
+    relation_weight: 0.4
+    entity_weight: 0.6
+  structural_gate_kwargs:
+    enable: true
+    mode: 'sigmoid'
+    min_gate: 0.15
+    max_gate: 1.0
+    threshold: 1.5
+    slope: 4.0
+    apply_to_dde: true
+    apply_to_llm_ref: true
+
+optimizer:
+  lr: 1e-3
+
+eval:
+  k_list: '100'
+
+loss:
+  contrastive_weight: 0.0
+  contrastive_temperature: 0.07
+  max_hard_negatives: 256
+
+train:
+  num_epochs: 10000
+  patience: 10
+  save_prefix: 'cwq_entityref_gate'
+  max_train_edges: 12000

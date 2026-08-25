@@ -1,0 +1,9 @@
+Python 3.10.8
+torch 2.13.0+cu130
+transformers 5.15.0
+vLLM 0.27.1 (installed in the environment; the bundled Gemma code uses the Transformers generation branch)
+accelerate 1.14.0
+NumPy 2.2.6
+tqdm 4.70.0
+scikit-learn 1.7.2
+NetworkX 3.4.2

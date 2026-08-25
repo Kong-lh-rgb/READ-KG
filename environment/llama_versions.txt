@@ -1,0 +1,8 @@
+Python 3.10.8
+torch 2.4.0+cu121
+transformers 4.43.2
+vLLM 0.5.5
+NumPy 1.26.4
+tqdm 4.69.0
+scikit-learn 1.7.2
+NetworkX 3.3
