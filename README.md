@@ -1,6 +1,5 @@
 # READ-KG
 
-Anonymous source-code release for READ-KG.
 
 ## Repository structure
 
